@@ -1,0 +1,21 @@
+{
+    "storage": {
+        "region": "us-east-1",
+        "key": "YOUR_KEY",
+        "secret": "YOUR_SECRET",
+        "bucket": "YOUR_BUCKET"
+    },
+    "applications": [
+        {
+            "name": "My App",
+            "id": "myapp",
+            "database": {
+                "name": "myapp",
+                "username": "root",
+                "password": "",
+                "host": "127.0.0.1",
+                "port": "3306"
+            }
+        }
+    ]
+}
