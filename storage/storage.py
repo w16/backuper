@@ -7,4 +7,4 @@ class Storage:
     def read(self, filename, mode="r"): raise NotImplementedError()
 
     @abstractmethod
-    def write(self, filename, mode="w"): raise NotImplementedError()
+    def write(self, filename, mode="w", output=None): raise NotImplementedError()

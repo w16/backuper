@@ -28,8 +28,11 @@ class S3(Storage):
         self.s3_client.download_file(self.bucket, filename, tmp_file)
         return open(tmp_file, mode)
 
-    def write(self, filename, mode="w"):
+    def write(self, filename, mode="w", output=None):
         if not self.s3_client:
             self._connect()
 
-        self.s3_client.upload_file(filename, self.bucket, path.basename(filename))
+        if not output:
+            output = path.basename(filename)
+
+        self.s3_client.upload_file(filename, self.bucket, output)

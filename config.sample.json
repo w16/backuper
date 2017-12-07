@@ -9,6 +9,7 @@
         {
             "name": "My App",
             "id": "myapp",
+            "path": "/path/to/app/files",
             "database": {
                 "name": "myapp",
                 "username": "root",
@@ -17,5 +18,36 @@
                 "port": "3306"
             }
         }
-    ]
+    ],
+    "logging": {
+        "version": 1,
+        "formatters": {
+            "default": {
+                "class": "logging.Formatter",
+                "style": "{",
+                "datefmt": "%d/%m/%Y %H:%M:%S",
+                "format": "{levelname:8s} - [{asctime:s}][{name:<15s}] {message:s}"
+            }
+        },
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "formatter": "default",
+                "level": "DEBUG"
+            },
+            "file_output": {
+                "class": "logging.WatchedFileHandler",
+                "formatter": "default",
+                "filename": "backuper.log",
+                "mode": "a",
+                "encoding": "utf-8",
+                "level": "INFO"
+            }
+        },
+        "loggers": {},
+        "root": {
+            "handlers": ["console", "file_handler"],
+            "level": "DEBUG"
+        }
+    }
 }
