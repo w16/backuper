@@ -1,4 +1,4 @@
-from compression.compression import CompressionMethod
+from compression import CompressionMethod
 import tarfile
 import os
 

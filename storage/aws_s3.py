@@ -1,5 +1,5 @@
 import boto3
-from storage.storage import Storage
+from storage import Storage
 from os import path
 
 class S3(Storage):
