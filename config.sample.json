@@ -1,5 +1,5 @@
 {
-    "storage": {
+    "s3": {
         "region": "us-east-1",
         "key": "YOUR_KEY",
         "secret": "YOUR_SECRET",
@@ -9,13 +9,26 @@
         {
             "name": "My App",
             "id": "myapp",
-            "path": "/path/to/app/files",
+            "compression": {
+                "type": "targz"    
+            },
             "database": {
+                "type": "mysql",
                 "name": "myapp",
                 "username": "root",
                 "password": "",
                 "host": "127.0.0.1",
                 "port": "3306"
+            },
+            "filesystem": {
+                "type": "local",
+                "path": "/path/to/fs"
+            },
+            "shell": {
+                "type": "system"
+            },
+            "storage": {
+                "type": "s3"
             }
         }
     ],
@@ -49,5 +62,6 @@
             "handlers": ["console", "file_handler"],
             "level": "DEBUG"
         }
-    }
+    },
+    "tmp_dir": "/tmp/backuper"
 }
